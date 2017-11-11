@@ -7,13 +7,17 @@ import yaml
 import logging
 import logging.config
 
+import json
+
 from os import path, chdir, makedirs 
 from shutil import rmtree, copy
-
-import picamera
+from platform import machine
 from time import sleep, gmtime, strftime
 
-import json
+pi_platform = False
+if machine() == "armv71":
+    import picamera
+    pi_platform = True
 
 
 # Establish defaults
@@ -21,6 +25,8 @@ TEMP_ROOT = "/tmp"
 TEMP_DIRECTORY = "test/unknown/"
 TEMP_FILE = "output.bmp"
 ARCHIVE_DIRECTORY = "/home/goyder/vgg_outputs"
+EXECUTION_PATH, EXECUTION_FILENAME = os.path.split(os.path.realpath(__file__))
+
 
 def establish_logging(verbosity=0):
     """
@@ -45,6 +51,7 @@ def main(classify=True):
     """
     Main entry point for program.
     """
+    logger.debug(os.path.realpath(__file__))
     logger.debug("Function is going to classify: {}".format(classify))
     if classify:
         from vgg import vgg16 
@@ -64,19 +71,28 @@ def main(classify=True):
         makedirs(ARCHIVE_DIRECTORY)
     logger.info("Done.")
 
-    # Take image
-    logger.info("Taking image with camera...")
-    with picamera.PiCamera() as camera:
-        # Get her up and running
-        camera.start_preview()
-        logger.debug("Zzzz. Camera warm-up.")
-        sleep(2)  # Warm up time 
-        camera.resolution = (1024,768)
-        camera.vflip = True
+    if pi_platform:
+        logger.info("Running on Raspberry Pi Platform.")
+        # Take image
+        logger.info("Taking image with camera...")
+        with picamera.PiCamera() as camera:
+            # Get her up and running
+            camera.start_preview()
+            logger.debug("Zzzz. Camera warm-up.")
+            sleep(2)  # Warm up time
+            camera.resolution = (1024,768)
+            camera.vflip = True
 
-        filename = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-        camera.capture(path.join(TEMP_ROOT, TEMP_DIRECTORY, filename+".jpg"), 'jpeg')
-    logger.info("Done.")
+            filename = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+            camera.capture(path.join(TEMP_ROOT, TEMP_DIRECTORY, filename+".jpg"), 'jpeg')
+        logger.info("Done.")
+    else:
+        logger.info("Not running on Raspberry Pi Platform.")
+        logger.info("Using dummy image.")
+        filename = "doggo"  # Because I'm a professional like that.
+        copy(path.join(EXECUTION_PATH,"vgg","test","unknown","doggo.jpg"),
+             path.join(TEMP_ROOT, TEMP_DIRECTORY, "doggo.jpg"))
+        logger.info("Done.")
 
     if classify:
         # Create VGG 

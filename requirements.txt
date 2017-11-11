@@ -1,0 +1,5 @@
+yaml
+argparse
+keras
+theano
+memory_profiler
