@@ -258,3 +258,40 @@
 2017-10-19 18:38:36,094 - root - INFO - Archiving prediction results.
 2017-10-19 18:38:36,143 - __main__ - INFO - Archiving captured image...
 2017-10-19 18:38:36,147 - __main__ - INFO - Done.
+2017-11-11 21:09:35,534 - __main__ - DEBUG - /home/goyder/PycharmProjects/vggcamera/vggcamera/main.py
+2017-11-11 21:09:35,534 - __main__ - DEBUG - Function is going to classify: True
+2017-11-11 21:09:36,633 - __main__ - INFO - Generating temp filepath for image...
+2017-11-11 21:09:36,634 - __main__ - INFO - Generating output filepath for storage...
+2017-11-11 21:09:36,634 - __main__ - INFO - Done.
+2017-11-11 21:09:36,634 - __main__ - INFO - Not running on Raspberry Pi Platform.
+2017-11-11 21:09:36,634 - __main__ - INFO - Using dummy image.
+2017-11-11 21:11:05,052 - __main__ - DEBUG - /home/goyder/PycharmProjects/vggcamera/vggcamera/main.py
+2017-11-11 21:11:05,053 - __main__ - DEBUG - Function is going to classify: True
+2017-11-11 21:11:06,149 - __main__ - INFO - Generating temp filepath for image...
+2017-11-11 21:11:06,149 - __main__ - INFO - Generating output filepath for storage...
+2017-11-11 21:11:06,149 - __main__ - INFO - Done.
+2017-11-11 21:11:06,150 - __main__ - INFO - Not running on Raspberry Pi Platform.
+2017-11-11 21:11:06,150 - __main__ - INFO - Using dummy image.
+2017-11-11 21:11:06,151 - __main__ - INFO - Done.
+2017-11-11 21:11:06,151 - root - INFO - Generating VGG model... patience please.
+2017-11-11 21:41:40,938 - root - INFO - Your patience is rewarded. Done.
+2017-11-11 21:41:41,000 - root - INFO - Classifying the image...
+2017-11-11 21:42:00,040 - root - INFO - Done. Most likely outcome was #235
+2017-11-11 21:42:00,041 - root - INFO - Classname: ['n02106662', 'German_shepherd']
+2017-11-11 21:42:00,041 - root - INFO - Archiving prediction results.
+2017-11-11 21:42:35,669 - __main__ - DEBUG - /home/goyder/PycharmProjects/vggcamera/vggcamera/main.py
+2017-11-11 21:42:35,669 - __main__ - DEBUG - Function is going to classify: True
+2017-11-11 21:42:37,503 - __main__ - INFO - Generating temp filepath for image...
+2017-11-11 21:42:37,504 - __main__ - INFO - Generating output filepath for storage...
+2017-11-11 21:42:37,504 - __main__ - INFO - Done.
+2017-11-11 21:42:37,504 - __main__ - INFO - Not running on Raspberry Pi Platform.
+2017-11-11 21:42:37,504 - __main__ - INFO - Using dummy image.
+2017-11-11 21:42:37,506 - __main__ - INFO - Done.
+2017-11-11 21:42:37,506 - root - INFO - Generating VGG model... patience please.
+2017-11-11 21:42:45,445 - root - INFO - Your patience is rewarded. Done.
+2017-11-11 21:42:45,449 - root - INFO - Classifying the image...
+2017-11-11 21:42:48,303 - root - INFO - Done. Most likely outcome was #235
+2017-11-11 21:42:48,304 - root - INFO - Classname: ['n02106662', 'German_shepherd']
+2017-11-11 21:42:48,305 - root - INFO - Archiving prediction results.
+2017-11-11 21:42:48,340 - __main__ - INFO - Archiving captured image...
+2017-11-11 21:42:48,340 - __main__ - INFO - Done.

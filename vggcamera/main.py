@@ -15,7 +15,7 @@ from platform import machine
 from time import sleep, gmtime, strftime
 
 pi_platform = False
-if machine() == "armv71":
+if machine() == "armv7l":
     import picamera
     pi_platform = True
 
@@ -53,7 +53,7 @@ def main(classify=True):
     """
     logger.debug(os.path.realpath(__file__))
     logger.debug("Function is going to classify: {}".format(classify))
-    if classify:
+    if classify:  # I dislike this
         from vgg import vgg16 
         from keras.utils import get_file
         from keras.preprocessing.image import ImageDataGenerator
@@ -90,8 +90,8 @@ def main(classify=True):
         logger.info("Not running on Raspberry Pi Platform.")
         logger.info("Using dummy image.")
         filename = "doggo"  # Because I'm a professional like that.
-        copy(path.join(EXECUTION_PATH,"vgg","test","unknown","doggo.jpg"),
-             path.join(TEMP_ROOT, TEMP_DIRECTORY, "doggo.jpg"))
+        copy(path.join(EXECUTION_PATH, filename+".jpg"),
+             path.join(TEMP_ROOT, TEMP_DIRECTORY, filename+".jpg"))
         logger.info("Done.")
 
     if classify:
